@@ -1,0 +1,14 @@
+server:
+  port: 38080
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: scheduler
+
+datasource:
+  url: jdbc:postgresql://localhost:5433/scheduler
+  password: Test
+  username: test
+  driver-class-name: org.postgresql.Driver
