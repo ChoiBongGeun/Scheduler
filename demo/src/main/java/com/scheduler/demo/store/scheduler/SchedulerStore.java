@@ -21,5 +21,8 @@ public class SchedulerStore
     {
         return schedulerRepository.findById(schedulerKey).orElseThrow(() -> new NoSuchElementException("schedulerKey not found"));
     }
+    public void save(Scheduler scheduler) {
+        schedulerRepository.save(scheduler);
+    }
 
 }

@@ -38,9 +38,28 @@ public class SchedulerService
         }
         catch (Exception e)
         {
-            logger.error("########## [driver error] msg: {}, cause: {}", e.getMessage(), e.getCause());
+            logger.error("error log message :", e.getMessage(), e.getCause());
             apiResult.setFail();
         }
+        return apiResult;
+    }
+
+    @Transactional
+    public ApiResult register(SchedulerDto schedulerDto)
+    {
+        ApiResult apiResult = new ApiResult();
+        try
+        {
+            Scheduler scheduler = new Scheduler(schedulerDto);
+            schedulerStore.save(scheduler);
+            apiResult.setSuccess();
+        }
+        catch (Exception e)
+        {
+            logger.error("error log message :", e.getMessage(), e.getCause());
+            apiResult.setFail();
+        }
+
         return apiResult;
     }
 }

@@ -1,11 +1,10 @@
 package com.scheduler.demo.controller;
 
 import com.scheduler.demo.dto.ApiResult;
+import com.scheduler.demo.dto.scheduler.SchedulerDto;
 import com.scheduler.demo.service.scheduler.SchedulerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/scheduler")
@@ -16,4 +15,7 @@ public class SchedulerController
 
     @GetMapping
     public ApiResult findAll() { return schedulerService.findAll();}
+
+    @PostMapping
+    public ApiResult register(@RequestBody SchedulerDto schedulerDto) { return schedulerService.register(schedulerDto); }
 }

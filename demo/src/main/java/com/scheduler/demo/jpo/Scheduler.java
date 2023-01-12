@@ -37,6 +37,16 @@ public class Scheduler
     @Column(name = "scheduler_date")
     private String schedulerDate;
 
+    public Scheduler(SchedulerDto schedulerDto)
+    {
+        this.schedulerKey = schedulerDto.getSchedulerKey();
+        this.schedulerTitle = schedulerDto.getSchedulerTitle();
+        this.schedulerContent = schedulerDto.getSchedulerContent();
+        this.shcedulerStartTime = schedulerDto.getShcedulerStartTime();
+        this.schedulerRepetition = schedulerDto.getSchedulerRepetition();
+        this.schedulerEndTime = schedulerDto.getSchedulerEndTime();
+        this.schedulerDate = schedulerDto.getSchedulerDate();
+    }
     public SchedulerDto toResponseDto(){
         return SchedulerDto.SchedulerDto()
             .scheduler(this).build();
