@@ -7,8 +7,8 @@ spring:
   application:
     name: scheduler
 
-datasource:
-  url: jdbc:postgresql://localhost:5433/scheduler
-  password: Test
-  username: test
-  driver-class-name: org.postgresql.Driver
+  datasource:
+    url: jdbc:postgresql://localhost:5433/scheduler
+    password: test
+    username: Test
+    driver-class-name: org.postgresql.Driver

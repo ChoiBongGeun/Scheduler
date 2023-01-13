@@ -18,4 +18,7 @@ public class SchedulerController
 
     @PostMapping
     public ApiResult register(@RequestBody SchedulerDto schedulerDto) { return schedulerService.register(schedulerDto); }
+
+    @GetMapping("{schedulerKey}")
+    public ApiResult findOne(@PathVariable int schedulerKey) {return schedulerService.findOne(schedulerKey); }
 }

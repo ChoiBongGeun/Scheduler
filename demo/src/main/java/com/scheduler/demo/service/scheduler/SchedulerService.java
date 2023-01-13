@@ -43,6 +43,23 @@ public class SchedulerService
         }
         return apiResult;
     }
+    public ApiResult findOne(int schedulerKey)
+    {
+        ApiResult apiResult = new ApiResult();
+
+        try
+        {
+            SchedulerDto schedulerDto = SchedulerDto.SchedulerDto().scheduler(schedulerStore.findOne(schedulerKey)).build();
+
+            apiResult.setData(schedulerDto);
+            apiResult.setSuccess();
+        }catch (Exception e)
+        {
+            logger.error("error log message :", e.getMessage(), e.getCause());
+            apiResult.setFail();
+        }
+        return apiResult;
+    }
 
     @Transactional
     public ApiResult register(SchedulerDto schedulerDto)

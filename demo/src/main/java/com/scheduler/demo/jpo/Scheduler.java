@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Getter
 @RequiredArgsConstructor
-@Table(name = "scheuler")
+@Table(name = "scheduler")
 public class Scheduler
 {
     @Id
