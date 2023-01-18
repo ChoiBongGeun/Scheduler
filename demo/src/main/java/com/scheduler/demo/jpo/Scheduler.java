@@ -26,7 +26,7 @@ public class Scheduler
     private String schedulerContent;
 
     @Column(name = "scheduler_start_time")
-    private String shcedulerStartTime;
+    private String schedulerStartTime;
 
     @Column(name = "scheduler_repetition")
     private String schedulerRepetition;
@@ -42,7 +42,7 @@ public class Scheduler
         this.schedulerKey = schedulerDto.getSchedulerKey();
         this.schedulerTitle = schedulerDto.getSchedulerTitle();
         this.schedulerContent = schedulerDto.getSchedulerContent();
-        this.shcedulerStartTime = schedulerDto.getShcedulerStartTime();
+        this.schedulerStartTime = schedulerDto.getSchedulerStartTime();
         this.schedulerRepetition = schedulerDto.getSchedulerRepetition();
         this.schedulerEndTime = schedulerDto.getSchedulerEndTime();
         this.schedulerDate = schedulerDto.getSchedulerDate();

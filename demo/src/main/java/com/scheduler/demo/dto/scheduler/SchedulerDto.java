@@ -16,7 +16,7 @@ public class SchedulerDto
     private int schedulerKey;
     private String schedulerTitle;
     private String schedulerContent;
-    private String shcedulerStartTime;
+    private String schedulerStartTime;
     private String schedulerRepetition;
     private String schedulerEndTime;
     private String schedulerDate;
@@ -27,7 +27,7 @@ public class SchedulerDto
         this.schedulerKey = scheduler.getSchedulerKey();
         this.schedulerTitle = scheduler.getSchedulerTitle();
         this.schedulerContent = scheduler.getSchedulerContent();
-        this.shcedulerStartTime = scheduler.getShcedulerStartTime();
+        this.schedulerStartTime = scheduler.getSchedulerStartTime();
         this.schedulerEndTime = scheduler.getSchedulerEndTime();
         this.schedulerRepetition = scheduler.getSchedulerRepetition();
         this.schedulerDate = scheduler.getSchedulerDate();

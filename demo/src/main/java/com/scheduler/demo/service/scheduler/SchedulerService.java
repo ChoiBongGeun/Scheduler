@@ -79,4 +79,22 @@ public class SchedulerService
 
         return apiResult;
     }
+
+    public ApiResult search(SchedulerDto schedulerDto)
+    {
+        ApiResult apiResult = new ApiResult();
+        try
+        {
+            List<SchedulerDto> schedulerList = schedulerStore.search(schedulerDto);
+            apiResult.setData(schedulerList);
+            apiResult.setSuccess();
+        }
+        catch (Exception e)
+        {
+            logger.error("error log message :", e.getMessage(), e.getCause());
+            apiResult.setFail();
+        }
+
+        return apiResult;
+    }
 }

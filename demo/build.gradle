@@ -1,7 +1,14 @@
+buildscript {
+	ext {
+		queryDslVersion = "5.0.0"
+	}
+}
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.8-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+	id "io.franzbecker.gradle-lombok" version "3.0.0"
 }
 
 group = 'com.scheduler'
@@ -32,8 +39,36 @@ dependencies {
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql:42.3.3'
+	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+	//def querydslDir = 'src/main/generated'
+
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+def querydslSrcDir = 'src/main/generated'
+
+querydsl{
+	library = 'com.querydsl:querydsl-apt'
+	jpa = true
+	querydslSourcesDir = querydslSrcDir
+}
+
+compileQuerydsl{
+	options.annotationProcessorPath = configurations.querydsl
+}
+configurations {
+	querydsl.extendsFrom compileClasspath
+}
+sourceSets{
+	main{
+		java{
+			srcDirs = ['src/main/java', querydslSrcDir]
+		}
+	}
+}
+
+

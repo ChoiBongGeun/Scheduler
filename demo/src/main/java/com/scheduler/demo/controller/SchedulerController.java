@@ -21,4 +21,7 @@ public class SchedulerController
 
     @GetMapping("{schedulerKey}")
     public ApiResult findOne(@PathVariable int schedulerKey) {return schedulerService.findOne(schedulerKey); }
+
+    @PostMapping("/search")
+    public ApiResult search(@RequestBody SchedulerDto schedulerDto) { return schedulerService.search(schedulerDto); }
 }

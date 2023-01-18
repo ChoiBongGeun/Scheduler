@@ -3,6 +3,7 @@ package com.scheduler.demo.store.scheduler;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.scheduler.demo.dto.scheduler.SchedulerDto;
 import com.scheduler.demo.jpo.Scheduler;
 import com.scheduler.demo.repository.scheduler.SchedulerRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,11 @@ public class SchedulerStore
     }
     public void save(Scheduler scheduler) {
         schedulerRepository.save(scheduler);
+    }
+
+    public List<SchedulerDto> search(SchedulerDto schedulerDto)
+    {
+        return schedulerRepository.search(schedulerDto);
     }
 
 }
