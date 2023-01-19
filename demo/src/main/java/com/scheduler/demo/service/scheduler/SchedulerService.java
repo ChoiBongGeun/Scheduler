@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 import com.scheduler.demo.dto.ApiResult;
 import com.scheduler.demo.dto.scheduler.SchedulerDto;
+import com.scheduler.demo.dto.scheduler.SchedulerListResponseDto;
+import com.scheduler.demo.dto.scheduler.SearchSchedulerRequestDto;
 import com.scheduler.demo.jpo.Scheduler;
 import com.scheduler.demo.store.scheduler.SchedulerStore;
 import lombok.RequiredArgsConstructor;
@@ -80,12 +82,13 @@ public class SchedulerService
         return apiResult;
     }
 
-    public ApiResult search(SchedulerDto schedulerDto)
+    public ApiResult search(SearchSchedulerRequestDto searchSchedulerRequestDto)
     {
         ApiResult apiResult = new ApiResult();
         try
         {
-            List<SchedulerDto> schedulerList = schedulerStore.search(schedulerDto);
+
+            List<SchedulerListResponseDto> schedulerList = schedulerStore.search(searchSchedulerRequestDto);
             apiResult.setData(schedulerList);
             apiResult.setSuccess();
         }

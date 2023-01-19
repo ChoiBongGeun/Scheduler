@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import com.scheduler.demo.dto.scheduler.SchedulerDto;
+import com.scheduler.demo.dto.scheduler.SchedulerListResponseDto;
+import com.scheduler.demo.dto.scheduler.SearchSchedulerRequestDto;
 import com.scheduler.demo.jpo.Scheduler;
 import com.scheduler.demo.repository.scheduler.SchedulerRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +28,9 @@ public class SchedulerStore
         schedulerRepository.save(scheduler);
     }
 
-    public List<SchedulerDto> search(SchedulerDto schedulerDto)
+    public List<SchedulerListResponseDto> search(SearchSchedulerRequestDto searchScheduleraRequestDto)
     {
-        return schedulerRepository.search(schedulerDto);
+        return schedulerRepository.search(searchScheduleraRequestDto);
     }
 
 }

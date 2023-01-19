@@ -7,19 +7,20 @@ import java.util.List;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.scheduler.demo.dto.scheduler.SchedulerDto;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.scheduler.demo.dto.scheduler.SchedulerListResponseDto;
+import com.scheduler.demo.dto.scheduler.SearchSchedulerRequestDto;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class SchedulerRepostioryCustomImpl implements SchedulerRepositoryCustom
+public class SchedulerRepositoryCustomImpl implements SchedulerRepositoryCustom
 {
     private final JPAQueryFactory query;
 
     @Override
-    public List<SchedulerDto> search(SchedulerDto schedulerDto)
+    public List<SchedulerListResponseDto> search(SearchSchedulerRequestDto searchSchedulerRequestDto)
     {
-        return query.select(Projections.bean(SchedulerDto.class,
+        return query.select(Projections.bean(SchedulerListResponseDto.class,
                 scheduler.schedulerKey,
                 scheduler.schedulerTitle,
                 scheduler.schedulerContent,
@@ -29,12 +30,12 @@ public class SchedulerRepostioryCustomImpl implements SchedulerRepositoryCustom
                 scheduler.schedulerEndTime))
             .from(scheduler)
             .where(
-                schedulerTitleContain(schedulerDto.getSchedulerTitle()),
-                schedulerContentContain(schedulerDto.getSchedulerContent()),
-                schedulerDateContain(schedulerDto.getSchedulerDate()),
-                schedulerRepetitionContain(schedulerDto.getSchedulerRepetition()),
-                schedulerStartTimeContain(schedulerDto.getSchedulerStartTime()),
-                schedulerEndTimeContain(schedulerDto.getSchedulerEndTime())
+                schedulerTitleContain(searchSchedulerRequestDto.getSchedulerTitle()),
+                schedulerContentContain(searchSchedulerRequestDto.getSchedulerContent()),
+                schedulerDateContain(searchSchedulerRequestDto.getSchedulerDate()),
+                schedulerRepetitionContain(searchSchedulerRequestDto.getSchedulerRepetition()),
+                schedulerStartTimeContain(searchSchedulerRequestDto.getSchedulerStartTime()),
+                schedulerEndTimeContain(searchSchedulerRequestDto.getSchedulerEndTime())
             )
             .orderBy(scheduler.schedulerKey.desc())
             .fetch();
