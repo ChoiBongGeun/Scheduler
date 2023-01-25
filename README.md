@@ -4,16 +4,17 @@
 
 ## 사용 기술
 
---------
++ ### backEnd
 
-### backEnd
+   1. JAVA 11
+   2. spring boot 2.7.8-SNAPSHOT
+   3. querydsl 5.0.0
+   4. gradle 7.6
 
----------
 
-1. JAVA 11
-2. spring boot 2.7.8-SNAPSHOT
-3. querydsl 5.0.0
-4. gradle 7.6
++ ### frontEnd
+   1. react 18.2.0
+   2. react-router-dom 6.7.0
 
 ---
 ## 오류 수정
