@@ -1,5 +1,5 @@
 import {BrowserRouter, Navigate, Route,Routes } from "react-router-dom"
-import SchedulerPage from "../pages/Scheduler/SchedulerPage"
+import SchedulerPage from "../pages/scheduler/SchedulerPage"
 
 
 
